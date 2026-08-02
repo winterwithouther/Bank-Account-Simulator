@@ -22,36 +22,98 @@ This project is part of a larger systems programming learning path and focuses o
 
 ### Account Creation
 
-* Create a bank account with:
+Create a bank account by providing:
 
-  * Owner name
-  * Initial balance
-* Prevent invalid starting balances.
+* Account owner's name
+* Initial balance
+
+The constructor should initialize the account and validate the starting balance.
+
+**Possible Prototype**
+
+```cpp
+BankAccount(const std::string& ownerName, double initialBalance);
+```
+
+---
 
 ### Deposit Money
 
-* Deposit money into the account.
-* Reject:
+Deposit money into the account.
 
-  * Negative amounts
-  * Zero-dollar deposits
-* Update the account balance after a successful deposit.
+Requirements:
+
+* Reject deposits less than or equal to zero.
+* Update the account balance if the deposit is valid.
+* Return whether the operation succeeded.
+
+**Possible Prototype**
+
+```cpp
+bool deposit(double amount);
+```
+
+---
 
 ### Withdraw Money
 
-* Withdraw money from the account.
-* Prevent:
+Withdraw money from the account.
 
-  * Negative withdrawals
-  * Zero-dollar withdrawals
-  * Withdrawals that exceed the available balance
+Requirements:
+
+* Reject withdrawals less than or equal to zero.
+* Prevent overdrawing the account.
+* Update the balance if the withdrawal is successful.
+* Return whether the operation succeeded.
+
+**Possible Prototype**
+
+```cpp
+bool withdraw(double amount);
+```
+
+---
 
 ### View Account Information
 
 Display the current account information, including:
 
-* Account owner's name
+* Owner's name
 * Current balance
+
+This function should not modify the object.
+
+**Possible Prototype**
+
+```cpp
+void displayAccount() const;
+```
+
+---
+
+### Retrieve Current Balance
+
+Allow other parts of the program to access the account balance without modifying it.
+
+**Possible Prototype**
+
+```cpp
+double getBalance() const;
+```
+
+---
+
+### Retrieve Account Owner
+
+Return the account owner's name.
+
+**Possible Prototype**
+
+```cpp
+const std::string& getOwnerName() const;
+```
+
+---
 
 ### Interactive Menu
 
@@ -62,7 +124,36 @@ Provide a menu-driven interface that repeatedly allows the user to:
 3. View account information
 4. Exit the application
 
-The application should continue running until the user chooses to exit.
+The program should continue running until the user chooses to exit.
+
+A helper function can be used to display the menu.
+
+**Possible Prototype**
+
+```cpp
+void displayMenu();
+```
+
+---
+
+### Input Validation
+
+Validate all user input before performing operations.
+
+Examples include:
+
+* Invalid menu selections
+* Non-numeric input
+* Negative values
+* Zero-dollar transactions
+* Withdrawals larger than the current balance
+
+Possible helper functions include:
+
+```cpp
+int getMenuChoice();
+double getTransactionAmount();
+```
 
 ---
 
@@ -121,4 +212,5 @@ Once the core project is complete, consider implementing additional features suc
 * Password-protected accounts
 * Unit tests
 
+---
 
