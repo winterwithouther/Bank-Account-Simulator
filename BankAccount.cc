@@ -11,32 +11,9 @@
  * @param balance : double
  * @return void
  */
-BankAccount::BankAccount(const std::string &name, double balance) {
-    this->name = name;
-    this->balance = balance;
-}
-
-/**
- * @name setName
- * @brief Sets the new name passed to object current name.
- * 
- * @param name : string
- * @return void
- */
-void BankAccount::setName(std::string &name) {
-    this->name = name;
-}
-
-/**
- * @name setBalance
- * @brief Sets the new balance passed to object current balance.
- * 
- * @param name : string
- * @param balance : double
- * @return void
- */
-void BankAccount::setBalance(double balance) {
-    this->balance = balance;
+BankAccount::BankAccount() {
+    this->balance = 0;
+    this->name = "";
 }
 
 /**

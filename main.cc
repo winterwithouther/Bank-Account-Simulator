@@ -6,14 +6,13 @@ void Startup();
 void createAccount(BankAccount &account);
 
 int main() {
-    bool loggedin = false;
+    bool accountExists = false;
     int input = 0;
-    std::string name;
 
     BankAccount account;
 
     while (true) {
-        if (loggedin) {
+        if (accountExists) {
             // display
         } else {
             Startup();
@@ -22,11 +21,11 @@ int main() {
             std::cout << std::endl;
             if (input == 1) {
                 createAccount(account);
-                loggedin = true;
+                accountExists = true;
                 account.printAccount();
             } else if (input == 2) {
                 // Exit the program
-                exit(0);
+                break;
             }
         }
     }
@@ -57,11 +56,9 @@ void createAccount(BankAccount &account) {
     
     std::cout << "Owner Name: ";
     std::cin >> name;
-    account.setName(name);
     std::cout << std::endl;
 
     std::cout << "Starting Balance: $";
     std::cin >> balance;
-    account.setBalance(balance);
     std::cout << std::endl;
 }

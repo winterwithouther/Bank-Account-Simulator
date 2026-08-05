@@ -5,9 +5,7 @@
 
 class BankAccount {
     public:
-        BankAccount(const std::string &name = "", double balance = 0);
-        void setName(std::string &name);
-        void setBalance(double balance);
+        BankAccount();
         void printAccount();
 
     private:
@@ -15,4 +13,4 @@ class BankAccount {
         double balance;
 };
 
-#endif
+#endif  
