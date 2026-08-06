@@ -49,3 +49,11 @@ bool BankAccount::initialize(const std::string &name, double balance) {
     this->initialized = true;
     return true;
 }
+
+std::string BankAccount::getName() const {
+    return this->ownerName;
+}
+
+double BankAccount::getBalance() const {
+    return this->balance;
+}

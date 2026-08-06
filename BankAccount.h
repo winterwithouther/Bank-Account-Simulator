@@ -9,6 +9,10 @@ class BankAccount {
         void printAccount() const;    
         bool initialize(const std::string &name, double balance);
 
+        // Accessors
+        std::string getName() const;
+        double getBalance() const;
+
     private:
         std::string ownerName;
         double balance;
