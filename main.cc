@@ -3,7 +3,7 @@
 #include <iomanip>
 
 void Startup();
-void createAccount(BankAccount &account);
+bool createAccount(BankAccount &account);
 
 int main() {
     bool accountExists = false;
@@ -20,9 +20,10 @@ int main() {
             
             std::cout << std::endl;
             if (input == 1) {
-                createAccount(account);
-                accountExists = true;
-                account.printAccount();
+                if (createAccount(account)) {
+                    accountExists = true;
+                    account.printAccount();
+                }
             } else if (input == 2) {
                 // Exit the program
                 break;
@@ -46,7 +47,7 @@ void Startup() {
     std::cout << "Enter your choice: ";
 }
 
-void createAccount(BankAccount &account) {
+bool createAccount(BankAccount &account) {
     std::string name = "";
     double balance = 0;
 
@@ -61,4 +62,12 @@ void createAccount(BankAccount &account) {
     std::cout << "Starting Balance: $";
     std::cin >> balance;
     std::cout << std::endl;
+
+    if (account.initialize(name, balance)) {
+        std::cout << "Account created successfully!" << std::endl;
+        return true;
+    } else {
+        std::cout << "Failed to create account." << std::endl;
+        return false;
+    }
 }
