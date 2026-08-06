@@ -6,11 +6,13 @@
 class BankAccount {
     public:
         BankAccount();
-        void printAccount();
+        void printAccount() const;    
+        bool initialize(const std::string &name, double balance);
 
     private:
-        std::string name;
+        std::string ownerName;
         double balance;
+        bool initialized;
 };
 
 #endif  
