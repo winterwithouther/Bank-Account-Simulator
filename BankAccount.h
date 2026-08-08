@@ -8,6 +8,7 @@ class BankAccount {
         BankAccount();
         void printAccount() const;    
         bool initialize(const std::string &name, double balance);
+        bool deposit(double amount);
 
         // Accessors
         std::string getName() const;
@@ -19,4 +20,4 @@ class BankAccount {
         bool initialized;
 };
 
-#endif  
+#endif

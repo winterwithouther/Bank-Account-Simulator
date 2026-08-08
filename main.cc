@@ -4,6 +4,7 @@
 
 void mainDisplay(BankAccount &account);
 void Startup();
+void depositDisplay(BankAccount &account);
 bool createAccount(BankAccount &account);
 
 int main() {
@@ -16,6 +17,19 @@ int main() {
         if (accountExists) {
             mainDisplay(account);
             std::cin >> input;
+
+            if (input == 1) {
+                // deposit money
+                depositDisplay(account);
+            } else if (input == 2) {
+                // withdraw money
+            } else if (input == 3) {
+                // view account information
+            } else if (input == 4) {
+                // exit program
+            } else {
+                // no valid input
+            }
         } else {
             Startup();
             std::cin >> input;
@@ -48,6 +62,33 @@ void mainDisplay(BankAccount &account) {
     std::cout << "4. Exit" << std::endl;
 
     std::cout << "Enter your choice: ";
+}
+
+void depositDisplay(BankAccount &account) {
+    int amount = 0;
+    std::cout << "=========================================" << std::endl;
+    std::cout << "         BANK ACCOUNT SIMULATOR" << std::endl;
+    std::cout << "=========================================" << std::endl << std::endl;
+
+    std::cout << "Current Balance: $" << account.getBalance() << std::endl;
+
+    while (true) {
+        std::cout << "Deposit Amount: $";
+        std::cin >> amount;
+    
+        bool valid = account.deposit(amount);
+        
+        if (valid) {
+            //successful
+            std::cout << "Deposit successful!" << std::endl;
+            std::cout << "New Balance: $" << account.getBalance() << std::endl;
+            return;
+        } else {
+            // unsuccessful
+            std::cout << std::endl;
+            continue;
+        }
+    }
 }
 
 void Startup() {

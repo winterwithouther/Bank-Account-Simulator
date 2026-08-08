@@ -50,10 +50,34 @@ bool BankAccount::initialize(const std::string &name, double balance) {
     return true;
 }
 
+bool BankAccount::deposit(double amount) {
+    if (amount <= 0) {
+        std::cout << "Amount cannot be less than or equal to 0." << std::endl;
+        return false;
+    }
+
+    balance += amount;
+    return true;
+}
+
+/**
+ * @name getName
+ * @brief Returns the owner name of the BankAccount object.
+ * 
+ * @param none
+ * @return Owner name
+ */
 std::string BankAccount::getName() const {
     return this->ownerName;
 }
 
+/**
+ * @name getBalance
+ * @brief Returns the balance of the BankAccount object.
+ * 
+ * @param none
+ * @return balance
+ */
 double BankAccount::getBalance() const {
     return this->balance;
 }
