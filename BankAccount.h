@@ -9,6 +9,7 @@ class BankAccount {
         void printAccount() const;    
         bool initialize(const std::string &name, double balance);
         bool deposit(double amount);
+        bool withdraw(double amount);
 
         // Accessors
         std::string getName() const;

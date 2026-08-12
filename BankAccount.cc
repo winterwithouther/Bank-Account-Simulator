@@ -50,12 +50,39 @@ bool BankAccount::initialize(const std::string &name, double balance) {
     return true;
 }
 
+/**
+ * @name deposit
+ * @brief Deposit's amount to the bank owner's balance.
+ * 
+ * @param amount incoming amount added to balance.
+ * @return True if deposit suceeds.
+ */
 bool BankAccount::deposit(double amount) {
     if (amount <= 0) {
         return false;
     }
 
     balance += amount;
+    return true;
+}
+
+/**
+ * @name withdraw
+ * @brief Withdraw amount from the bank owner's balance.
+ * 
+ * @param amount incoming amount withdraw from balance.
+ * @return True if deposit suceeds.
+ */
+bool BankAccount::withdraw(double amount) {
+    if (amount <= 0) {
+        return false;
+    }
+
+    if (amount > this->balance) {
+        return false;
+    }
+
+    this->balance = (this->balance - amount);
     return true;
 }
 

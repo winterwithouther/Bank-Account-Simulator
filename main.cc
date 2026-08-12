@@ -5,6 +5,7 @@
 void mainDisplay(BankAccount &account);
 void Startup();
 void depositDisplay(BankAccount &account);
+void withdrawDisplay(BankAccount &account);
 bool createAccount(BankAccount &account);
 
 int main() {
@@ -23,6 +24,7 @@ int main() {
                 depositDisplay(account);
             } else if (input == 2) {
                 // withdraw money
+                withdrawDisplay(account);
             } else if (input == 3) {
                 // view account information
             } else if (input == 4) {
@@ -67,7 +69,7 @@ void mainDisplay(BankAccount &account) {
 void depositDisplay(BankAccount &account) {
     double amount = 0;
     std::cout << "=========================================" << std::endl;
-    std::cout << "         BANK ACCOUNT SIMULATOR" << std::endl;
+    std::cout << "              DEPOSIT MONEY" << std::endl;
     std::cout << "=========================================" << std::endl << std::endl;
 
     std::cout << "Current Balance: $" << account.getBalance() << std::endl;
@@ -86,6 +88,33 @@ void depositDisplay(BankAccount &account) {
         } else {
             // unsuccessful
             std::cout << "Deposit unsuccessful." << std::endl;
+            continue;
+        }
+    }
+}
+
+void withdrawDisplay(BankAccount &account) {
+    double amount = 0;
+    std::cout << "=========================================" << std::endl;
+    std::cout << "              WITHDRAW MONEY" << std::endl;
+    std::cout << "=========================================" << std::endl << std::endl;
+
+    std::cout << "Current Balance: $" << account.getBalance() << std::endl;
+
+    while (true) {
+        std::cout << "Withdraw Amount: $";
+        std::cin >> amount;
+    
+        bool valid = account.withdraw(amount);
+        
+        if (valid) {
+            //successful
+            std::cout << "Withdraw successful!" << std::endl;
+            std::cout << "New Balance: $" << account.getBalance() << std::endl;
+            break;
+        } else {
+            // unsuccessful
+            std::cout << "Withdraw unsuccessful." << std::endl;
             continue;
         }
     }
