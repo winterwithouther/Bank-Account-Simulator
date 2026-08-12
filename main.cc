@@ -65,7 +65,7 @@ void mainDisplay(BankAccount &account) {
 }
 
 void depositDisplay(BankAccount &account) {
-    int amount = 0;
+    double amount = 0;
     std::cout << "=========================================" << std::endl;
     std::cout << "         BANK ACCOUNT SIMULATOR" << std::endl;
     std::cout << "=========================================" << std::endl << std::endl;
@@ -82,10 +82,10 @@ void depositDisplay(BankAccount &account) {
             //successful
             std::cout << "Deposit successful!" << std::endl;
             std::cout << "New Balance: $" << account.getBalance() << std::endl;
-            return;
+            break;
         } else {
             // unsuccessful
-            std::cout << std::endl;
+            std::cout << "Deposit unsuccessful." << std::endl;
             continue;
         }
     }

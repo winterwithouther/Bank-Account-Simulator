@@ -52,7 +52,6 @@ bool BankAccount::initialize(const std::string &name, double balance) {
 
 bool BankAccount::deposit(double amount) {
     if (amount <= 0) {
-        std::cout << "Amount cannot be less than or equal to 0." << std::endl;
         return false;
     }
 
