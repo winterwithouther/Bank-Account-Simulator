@@ -3,6 +3,7 @@ CFLAGS = -std=c++20 -Wall
 
 # EXECUTABLE FILE
 TARGET = BankAccountSimulator
+TEST_TARGET = test_bankaccount
 
 OBJS = main.o BankAccount.o
 
@@ -15,5 +16,11 @@ main.o: main.cc BankAccount.h
 BankAccount.o: BankAccount.cc BankAccount.h
 	$(CC) $(CFLAGS) -c BankAccount.cc
 
+test: $(TEST_TARGET)
+	./$(TEST_TARGET)
+
+$(TEST_TARGET): test_bankaccount.cc BankAccount.cc BankAccount.h
+	$(CC) $(CFLAGS) test_bankaccount.cc BankAccount.cc -o $(TEST_TARGET)
+
 clean:
-	rm -rf $(OBJS) $(TARGET)
+	rm -rf $(OBJS) $(TARGET) $(TEST_TARGET)
