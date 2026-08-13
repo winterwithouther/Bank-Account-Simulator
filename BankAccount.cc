@@ -14,18 +14,6 @@
 BankAccount::BankAccount() : ownerName(""), balance(0.0), initialized(false) {}
 
 /**
- * @name printAccount
- * @brief Displays the information of current account object, name and balance.
- * 
- * @param none
- * @return void
- */
-void BankAccount::printAccount() const {
-    std::cout << "Name: " << this->ownerName << "\n"
-              << "Balance: " << this->balance << std::endl;
-}
-
-/**
  * @name initialize
  * @brief Initializes bank account object with parameter data.
  * 

@@ -6,6 +6,7 @@ void mainDisplay(BankAccount &account);
 void Startup();
 void depositDisplay(BankAccount &account);
 void withdrawDisplay(BankAccount &account);
+void accountDisplay(BankAccount &account);
 bool createAccount(BankAccount &account);
 
 int main() {
@@ -27,6 +28,7 @@ int main() {
                 withdrawDisplay(account);
             } else if (input == 3) {
                 // view account information
+                accountDisplay(account);
             } else if (input == 4) {
                 // exit program
             } else {
@@ -64,6 +66,17 @@ void mainDisplay(BankAccount &account) {
     std::cout << "4. Exit" << std::endl;
 
     std::cout << "Enter your choice: ";
+}
+
+void accountDisplay(BankAccount &account) {
+    std::cout << "=========================================" << std::endl;
+    std::cout << "          ACCOUNT INFORMATION" << std::endl;
+    std::cout << "=========================================" << std::endl << std::endl;
+
+    std::cout << "Owner Name: " << account.getName() << std::endl;
+    std::cout << "Balance: " << account.getBalance() << std::fixed << std::setprecision(2) << std::endl << std::endl;
+
+    std::cout << "=========================================" << std::endl;
 }
 
 void depositDisplay(BankAccount &account) {
